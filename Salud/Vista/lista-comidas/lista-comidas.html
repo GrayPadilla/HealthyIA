@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Comidas - Healthy IA</title>
+  <link rel="icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="stylesheet" href="lista-comidas.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="../../imagenes/logo.jpg" alt="logo" />
+      <h2>Healthy IA</h2>
+    </div>
+    <nav>
+      <a href="../Principal/principal.html">Home</a>
+      <a href="../sobre-nosotros/sobre-nosotros.html">Sobre nosotros</a>
+      <a href="../como-usar/como-usar.html">Cómo usar</a>
+      <a href="../evaluacion-habitos/evaluacion-habitos.html">Evaluación Nutricional</a>      
+      <a href="../mi-perfil/mi-perfil.html">Mi Perfil</a>
+      <button class="ia" onclick="location.href='../IA-opciones/IA-opciones.html'">IA Nutricional</button>
+    </nav>
+  </header>
+
+  <!-- FILTROS -->
+  <section class="filters-section">
+    <h1>Explora Nuestras Comidas</h1>
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-category="todos">Todos</button>
+      <button class="filter-btn" data-category="desayunos">🌅 Desayunos</button>
+      <button class="filter-btn" data-category="almuerzos">☀️ Almuerzos</button>
+      <button class="filter-btn" data-category="cenas">🌙 Cenas</button>
+    </div>
+    
+    <div class="search-filter">
+      <input type="text" id="searchInput" placeholder="Buscar comida...">
+      <select id="dietFilter">
+        <option value="">Todas las dietas</option>
+        <option value="vegetariano">Vegetariano</option>
+        <option value="vegano">Vegano</option>
+        <option value="bajo-calorias">Bajo en calorías</option>
+        <option value="alto-proteinas">Alto en proteínas</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- LISTA DE COMIDAS -->
+  <section class="comidas-container">
+    <!-- DESAYUNOS -->
+    <div class="category-section" data-category="desayunos">
+      <h2>🌅 Desayunos</h2>
+      <div class="comidas-grid">
+        <div class="comida-card" data-diet="vegetariano" onclick="verDetalle('avena-frutas')">
+          <img src="../../imagenes/avena-frutas.jpg" alt="Avena con frutas" onerror="this.src='../../imagenes/comidas.jpg'">
+          <div class="card-info">
+            <h3>Avena con Frutas</h3>
+            <p class="calorias">280 kcal</p>
+            <div class="macros">
+              <span class="proteinas">12g proteínas</span>
+              <span class="carbohidratos">45g carbos</span>
+              <span class="grasas">8g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag vegetariano">Vegetariano</span>
+              <span class="tag alto-fibra">Alto en fibra</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" data-diet="alto-proteinas" onclick="verDetalle('huevos-revueltos')">
+          <img src="../../imagenes/huevos-revueltos.jpg" alt="Huevos revueltos" onerror="this.src='../../imagenes/comidas.jpg'">
+          <div class="card-info">
+            <h3>Huevos Revueltos con Tostadas</h3>
+            <p class="calorias">350 kcal</p>
+            <div class="macros">
+              <span class="proteinas">25g proteínas</span>
+              <span class="carbohidratos">20g carbos</span>
+              <span class="grasas">18g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag alto-proteinas">Alto en proteínas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" data-diet="vegano" onclick="verDetalle('smoothie-verde')">
+          <img src="../../imagenes/smoothie-verde.jpg" alt="Smoothie verde" onerror="this.src='../../imagenes/frutas.jpg'">
+          <div class="card-info">
+            <h3>Smoothie Verde</h3>
+            <p class="calorias">220 kcal</p>
+            <div class="macros">
+              <span class="proteinas">8g proteínas</span>
+              <span class="carbohidratos">35g carbos</span>
+              <span class="grasas">5g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag vegano">Vegano</span>
+              <span class="tag bajo-calorias">Bajo en calorías</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALMUERZOS -->
+    <div class="category-section" data-category="almuerzos">
+      <h2>☀️ Almuerzos</h2>
+      <div class="comidas-grid">
+        <div class="comida-card" data-diet="alto-proteinas" onclick="verDetalle('pollo-verduras')">
+          <img src="../../imagenes/pollo-verduras.jpg" alt="Pollo con verduras" onerror="this.src='../../imagenes/carne.jpg'">
+          <div class="card-info">
+            <h3>Pollo a la Plancha con Verduras</h3>
+            <p class="calorias">420 kcal</p>
+            <div class="macros">
+              <span class="proteinas">35g proteínas</span>
+              <span class="carbohidratos">25g carbos</span>
+              <span class="grasas">15g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag alto-proteinas">Alto en proteínas</span>
+              <span class="tag bajo-calorias">Bajo en calorías</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" data-diet="vegetariano" onclick="verDetalle('ensalada-quinoa')">
+          <img src="../../imagenes/ensalada-quinoa.jpg" alt="Ensalada de quinoa" onerror="this.src='../../imagenes/comidas.jpg'">
+          <div class="card-info">
+            <h3>Ensalada de Quinoa</h3>
+            <p class="calorias">380 kcal</p>
+            <div class="macros">
+              <span class="proteinas">18g proteínas</span>
+              <span class="carbohidratos">45g carbos</span>
+              <span class="grasas">12g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag vegetariano">Vegetariano</span>
+              <span class="tag alto-fibra">Alto en fibra</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" onclick="verDetalle('hamburguesa-casera')">
+          <img src="../../imagenes/hamburguesa.jpg" alt="Hamburguesa casera">
+          <div class="card-info">
+            <h3>Hamburguesa Casera</h3>
+            <p class="calorias">520 kcal</p>
+            <div class="macros">
+              <span class="proteinas">28g proteínas</span>
+              <span class="carbohidratos">40g carbos</span>
+              <span class="grasas">25g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag alto-proteinas">Alto en proteínas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENAS -->
+    <div class="category-section" data-category="cenas">
+      <h2>🌙 Cenas</h2>
+      <div class="comidas-grid">
+        <div class="comida-card" data-diet="bajo-calorias" onclick="verDetalle('pescado-vapor')">
+          <img src="../../imagenes/pescado-vapor.jpg" alt="Pescado al vapor" onerror="this.src='../../imagenes/carne.jpg'">
+          <div class="card-info">
+            <h3>Pescado al Vapor con Vegetales</h3>
+            <p class="calorias">290 kcal</p>
+            <div class="macros">
+              <span class="proteinas">30g proteínas</span>
+              <span class="carbohidratos">15g carbos</span>
+              <span class="grasas">8g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag bajo-calorias">Bajo en calorías</span>
+              <span class="tag alto-proteinas">Alto en proteínas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" data-diet="vegetariano" onclick="verDetalle('sopa-verduras')">
+          <img src="../../imagenes/sopa-verduras.jpg" alt="Sopa de verduras" onerror="this.src='../../imagenes/comidas.jpg'">
+          <div class="card-info">
+            <h3>Sopa de Verduras</h3>
+            <p class="calorias">180 kcal</p>
+            <div class="macros">
+              <span class="proteinas">8g proteínas</span>
+              <span class="carbohidratos">25g carbos</span>
+              <span class="grasas">4g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag vegetariano">Vegetariano</span>
+              <span class="tag bajo-calorias">Bajo en calorías</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comida-card" onclick="verDetalle('pizza-casera')">
+          <img src="../../imagenes/pizza-casera.jpg" alt="Pizza casera">
+          <div class="card-info">
+            <h3>Pizza Casera Integral</h3>
+            <p class="calorias">450 kcal</p>
+            <div class="macros">
+              <span class="proteinas">20g proteínas</span>
+              <span class="carbohidratos">55g carbos</span>
+              <span class="grasas">16g grasas</span>
+            </div>
+            <div class="tags">
+              <span class="tag vegetariano">Vegetariano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón de Modo Oscuro/Claro -->
+  <button type="button" id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro/claro">
+    <span class="toggle-icon">🌙</span>
+    <span class="toggle-text">Modo Oscuro</span>
+  </button>
+
+  <!-- 📊 Cargar sistema de métricas primero -->
+  <script src="../../Controlador/metricas.js"></script>
+  <script src="../../Controlador/C-lista-comidas/lista-comidas.js"></script>
+  <script>
+    // Script para modo oscuro/claro
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          const icon = this.querySelector('.toggle-icon');
+          const text = this.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+          }
+          localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        });
+        
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+          document.body.classList.add('dark-mode');
+          const icon = darkModeToggle.querySelector('.toggle-icon');
+          const text = darkModeToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = '☀️';
+            text.textContent = 'Modo Claro';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

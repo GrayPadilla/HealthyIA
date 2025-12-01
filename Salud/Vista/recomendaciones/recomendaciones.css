@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 50%, #2b7cff 100%);
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logo h2 {
+  color: #2b7cff;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav a, .login {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.login.active {
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+  color: white;
+}
+
+.main-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.recommendation-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+}
+
+.recommendation-card.featured {
+  grid-column: span 2;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(79, 70, 229, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+  z-index: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  color: #1e293b;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  background: #2b7cff;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.food-preview {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.food-preview img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.food-info {
+  position: relative;
+  z-index: 2;
+}
+
+.food-info h4 {
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.food-info p {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stats span {
+  background: rgba(79, 70, 229, 0.15);
+  color: #2b7cff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.try-btn {
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.try-btn:hover {
+  transform: translateY(-2px);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.food-mini {
+  background: rgba(79, 70, 229, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.food-mini:hover {
+  background: rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+.food-mini img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.food-mini h5 {
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.calories {
+  color: #2b7cff;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tips-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.05);
+  border-radius: 10px;
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.tip p {
+  color: #374151;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.progress-summary {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.progress-item h4 {
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+}
+
+.progress-item span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.action-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+  color: white;
+}
+
+.action-btn.secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2b7cff;
+  border: 2px solid #2b7cff;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Botón Modo Oscuro/Claro */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 26px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2b7cff;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.dark-mode-toggle:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+  color: #1a5fd1;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 15px 50px rgba(43, 124, 255, 0.4);
+  border-color: #2b7cff;
+}
+
+.toggle-icon {
+  font-size: 24px;
+  transition: transform 0.4s ease;
+  display: inline-block;
+}
+
+.dark-mode-toggle:hover .toggle-icon {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.toggle-text {
+  user-select: none;
+  font-weight: 600;
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+  background: linear-gradient(135deg, #0a1628 0%, #1a2332 50%, #0a1628 100%);
+  background-attachment: fixed;
+  color: #f1f1f1;
+}
+
+body.dark-mode header {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+body.dark-mode .logo h2 {
+  color: #60a5fa;
+}
+
+body.dark-mode nav a,
+body.dark-mode .login {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .main-content,
+body.dark-mode .recommendation-card {
+  background: rgba(30, 41, 59, 0.95);
+  color: #f1f1f1;
+}
+
+body.dark-mode .recommendation-card h3,
+body.dark-mode .recommendation-card h4 {
+  color: #ffffff;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(43, 124, 255, 0.5);
+  color: #60a5fa;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background: rgba(43, 124, 255, 0.2);
+  border-color: #2b7cff;
+  color: #2b7cff;
+}
+
+@media (max-width: 768px) {
+  .recommendation-card.featured {
+    grid-column: span 1;
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .food-preview {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dark-mode-toggle {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+  
+  .toggle-text {
+    display: none;
+  }
+}

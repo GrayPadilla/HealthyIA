@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Perfil - Healthy IA</title>
+  <link rel="icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="stylesheet" href="mi-perfil.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="../../imagenes/logo.jpg" alt="logo" />
+      <h2>Healthy IA</h2>
+    </div>
+    <nav>
+      <a href="../Principal/principal.html">Home</a>
+      <a href="../lista-comidas/lista-comidas.html">Comidas</a>
+      <a href="../sobre-nosotros/sobre-nosotros.html">Sobre nosotros</a>
+      <a href="../como-usar/como-usar.html">Cómo usar</a>
+      <a href="../evaluacion-habitos/evaluacion-habitos.html">Evaluación Nutricional</a>  
+      <button class="ia" onclick="location.href='../IA-opciones/IA-opciones.html'">IA Nutricional</button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- HERO SECTION -->
+    <section class="profile-hero">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img id="userAvatar" src="../../imagenes/user-avatar.png" alt="Avatar" onerror="this.src='../../imagenes/logo.jpg'">
+          <button class="edit-avatar-btn" onclick="changeAvatar()">📷</button>
+        </div>
+        
+        <div class="profile-basic-info">
+          <h1 id="userName">Juan Pérez</h1>
+          <p id="userEmail">juan.perez@email.com</p>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-number" id="daysActive">15</span>
+              <span class="stat-label">días activo</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" id="mealsTracked">45</span>
+              <span class="stat-label">comidas</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" id="goalsAchieved">8</span>
+              <span class="stat-label">objetivos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS -->
+    <section class="profile-tabs">
+      <div class="tabs">
+        <button class="tab active" data-tab="personal">👤 Información Personal</button>
+        <button class="tab" data-tab="health">🏥 Datos de Salud</button>
+        <button class="tab" data-tab="goals">🎯 Objetivos</button>
+        <button class="tab" data-tab="preferences">❤️ Preferencias</button>
+        <button class="tab" data-tab="evaluation">📝 Evaluación de Hábitos</button>
+        <button class="tab" data-tab="progress">📈 Progreso</button>
+      </div>
+    </section>
+
+    <!-- TAB CONTENT -->
+    <section class="tab-content-section">
+      <!-- INFORMACIÓN PERSONAL -->
+      <div id="personalTab" class="tab-content active">
+        <div class="content-card">
+          <h3>📋 Información Personal</h3>
+          <form class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <input type="text" id="firstName" value="Juan" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Apellido</label>
+                <input type="text" id="lastName" value="Pérez" />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="birthDate">Fecha de Nacimiento</label>
+                <input type="date" id="birthDate" value="1990-05-15" />
+              </div>
+              <div class="form-group">
+                <label for="gender">Género</label>
+                <select id="gender">
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                  <option value="otro">Otro</option>
+                  <option value="no-especificar">Prefiero no especificar</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" id="email" value="juan.perez@email.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" value="+51 999 888 777" />
+            </div>
+
+            <button type="button" class="save-btn" onclick="savePersonalInfo()">
+              💾 Guardar Cambios
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- DATOS DE SALUD -->
+      <div id="healthTab" class="tab-content">
+        <div class="content-card">
+          <h3>🏥 Datos de Salud</h3>
+          
+          <div class="health-metrics">
+            <div class="metric-card">
+              <div class="metric-icon">⚖️</div>
+              <div class="metric-info">
+                <label for="weight">Peso (kg)</label>
+                <input type="number" id="weight" value="75" step="0.1" />
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-icon">📏</div>
+              <div class="metric-info">
+                <label for="height">Altura (cm)</label>
+                <input type="number" id="height" value="175" />
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-icon">🎯</div>
+              <div class="metric-info">
+                <label>IMC Actual</label>
+                <div class="imc-display">
+                  <span id="imcValue">24.5</span>
+                  <span id="imcCategory">Normal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="activityLevel">Nivel de Actividad</label>
+            <select id="activityLevel">
+              <option value="sedentario">Sedentario (poco o nada de ejercicio)</option>
+              <option value="ligero" selected>Ligero (ejercicio ligero 1-3 días/semana)</option>
+              <option value="moderado">Moderado (ejercicio moderado 3-5 días/semana)</option>
+              <option value="activo">Activo (ejercicio intenso 6-7 días/semana)</option>
+              <option value="muy-activo">Muy activo (ejercicio muy intenso, trabajo físico)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Condiciones de Salud</label>
+            <div class="health-conditions">
+              <label class="checkbox-label">
+                <input type="checkbox" id="diabetes" />
+                <span>Diabetes</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="hipertension" />
+                <span>Hipertensión</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="colesterol" />
+                <span>Colesterol alto</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="celiaquia" />
+                <span>Celiaquía</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="button" class="save-btn" onclick="saveHealthInfo()">
+            💾 Actualizar Datos de Salud
+          </button>
+        </div>
+      </div>
+
+      <!-- OBJETIVOS -->
+      <div id="goalsTab" class="tab-content">
+        <div class="content-card">
+          <h3>🎯 Mis Objetivos</h3>
+          
+          <div class="goal-selector">
+            <label>Objetivo Principal</label>
+            <div class="goal-options">
+              <label class="goal-option">
+                <input type="radio" name="mainGoal" value="perder-peso" checked />
+                <div class="goal-card">
+                  <span class="goal-icon">⚖️</span>
+                  <span class="goal-title">Perder Peso</span>
+                </div>
+              </label>
+              
+              <label class="goal-option">
+                <input type="radio" name="mainGoal" value="ganar-masa" />
+                <div class="goal-card">
+                  <span class="goal-icon">💪</span>
+                  <span class="goal-title">Ganar Masa Muscular</span>
+                </div>
+              </label>
+              
+              <label class="goal-option">
+                <input type="radio" name="mainGoal" value="mantener" />
+                <div class="goal-card">
+                  <span class="goal-icon">⚖️</span>
+                  <span class="goal-title">Mantener Peso</span>
+                </div>
+              </label>
+              
+              <label class="goal-option">
+                <input type="radio" name="mainGoal" value="salud-general" />
+                <div class="goal-card">
+                  <span class="goal-icon">❤️</span>
+                  <span class="goal-title">Salud General</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="goal-targets">
+            <div class="form-group">
+              <label for="targetWeight">Peso Objetivo (kg)</label>
+              <input type="number" id="targetWeight" value="70" step="0.1" />
+            </div>
+            
+            <div class="form-group">
+              <label for="targetCalories">Calorías Diarias Objetivo</label>
+              <input type="number" id="targetCalories" value="2000" />
+            </div>
+            
+            <div class="form-group">
+              <label for="targetDate">Fecha Objetivo</label>
+              <input type="date" id="targetDate" />
+            </div>
+          </div>
+
+          <button type="button" class="save-btn" onclick="saveGoals()">
+            🎯 Actualizar Objetivos
+          </button>
+        </div>
+      </div>
+
+      <!-- PREFERENCIAS -->
+      <div id="preferencesTab" class="tab-content">
+        <div class="content-card">
+          <h3>❤️ Preferencias Alimentarias</h3>
+          
+          <div class="diet-preferences">
+            <label>Tipo de Dieta</label>
+            <div class="diet-options">
+              <label class="diet-option">
+                <input type="radio" name="dietType" value="omnivora" checked />
+                <span>🍽️ Omnívora</span>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="dietType" value="vegetariana" />
+                <span>🥗 Vegetariana</span>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="dietType" value="vegana" />
+                <span>🌱 Vegana</span>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="dietType" value="keto" />
+                <span>🥑 Keto</span>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="dietType" value="paleo" />
+                <span>🥩 Paleo</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Alergias Alimentarias</label>
+            <div class="allergies-list">
+              <label class="checkbox-label">
+                <input type="checkbox" id="lactose" />
+                <span>Lactosa</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="gluten" />
+                <span>Gluten</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="nuts" />
+                <span>Frutos secos</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="shellfish" />
+                <span>Mariscos</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dislikedFoods">Alimentos que no me gustan</label>
+            <textarea id="dislikedFoods" placeholder="Ejemplo: brócoli, pescado, picante..."></textarea>
+          </div>
+
+          <button type="button" class="save-btn" onclick="savePreferences()">
+            ❤️ Guardar Preferencias
+          </button>
+        </div>
+      </div>
+
+      <!-- EVALUACIÓN DE HÁBITOS -->
+      <div id="evaluationTab" class="tab-content">
+        <div class="content-card">
+          <h3>📝 Evaluación de Hábitos Alimenticios</h3>
+          <p style="margin-bottom: 20px; color: #666;">
+            Completa esta evaluación para que podamos conocerte mejor y ofrecerte recomendaciones más personalizadas.
+          </p>
+          
+          <div id="evaluationStatus" class="evaluation-status">
+            <!-- Se mostrará el estado de la evaluación aquí -->
+          </div>
+
+          <div class="evaluation-actions" style="margin-top: 30px;">
+            <a href="../evaluacion-habitos/evaluacion-habitos.html" class="btn-evaluation">
+              🍎 Comenzar Evaluación
+            </a>
+            <a href="../evaluacion-habitos/evaluacion-habitos.html" class="btn-evaluation-secondary" style="margin-left: 10px;">
+              🔄 Realizar Evaluación Nuevamente
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRESO -->
+      <div id="progressTab" class="tab-content">
+        <div class="content-card">
+          <h3>📈 Mi Progreso</h3>
+          
+          <div class="progress-overview">
+            <div class="progress-card">
+              <div class="progress-icon">📊</div>
+              <div class="progress-info">
+                <h4>Peso Perdido</h4>
+                <div class="progress-value">
+                  <span class="big-number">3.2</span>
+                  <span class="unit">kg</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 45%"></div>
+                </div>
+                <p>45% del objetivo</p>
+              </div>
+            </div>
+
+            <div class="progress-card">
+              <div class="progress-icon">🔥</div>
+              <div class="progress-info">
+                <h4>Calorías Promedio</h4>
+                <div class="progress-value">
+                  <span class="big-number">1,850</span>
+                  <span class="unit">kcal</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 92%"></div>
+                </div>
+                <p>92% del objetivo diario</p>
+              </div>
+            </div>
+
+            <div class="progress-card">
+              <div class="progress-icon">💧</div>
+              <div class="progress-info">
+                <h4>Hidratación</h4>
+                <div class="progress-value">
+                  <span class="big-number">2.1</span>
+                  <span class="unit">L</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 70%"></div>
+                </div>
+                <p>70% del objetivo diario</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="achievements">
+            <h4>🏆 Logros Recientes</h4>
+            <div class="achievements-list">
+              <div class="achievement">
+                <span class="achievement-icon">🎯</span>
+                <div class="achievement-info">
+                  <h5>Meta Semanal</h5>
+                  <p>Cumpliste tu objetivo de calorías 5 días seguidos</p>
+                </div>
+                <span class="achievement-date">Hace 2 días</span>
+              </div>
+              
+              <div class="achievement">
+                <span class="achievement-icon">🥗</span>
+                <div class="achievement-info">
+                  <h5>Vida Saludable</h5>
+                  <p>15 días registrando tus comidas</p>
+                </div>
+                <span class="achievement-date">Hace 1 semana</span>
+              </div>
+              
+              <div class="achievement">
+                <span class="achievement-icon">💪</span>
+                <div class="achievement-info">
+                  <h5>Primer Kilo</h5>
+                  <p>¡Perdiste tu primer kilo!</p>
+                </div>
+                <span class="achievement-date">Hace 2 semanas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="profile-actions">
+      <button class="action-btn secondary" onclick="exportData()">
+        📤 Exportar Datos
+      </button>
+      <button class="action-btn danger" onclick="deleteAccount()">
+        🗑️ Eliminar Cuenta
+      </button>
+    </section>
+  </main>
+
+  <!-- Botón de Modo Oscuro/Claro -->
+  <button type="button" id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro/claro">
+    <span class="toggle-icon">🌙</span>
+    <span class="toggle-text">Modo Oscuro</span>
+  </button>
+
+  <!-- 📊 Cargar sistema de métricas primero -->
+  <script src="../../Controlador/metricas.js"></script>
+  <script src="../../Controlador/C-mi-perfil/mi-perfil.js"></script>
+  <script>
+    // Script para modo oscuro/claro
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          const icon = this.querySelector('.toggle-icon');
+          const text = this.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+          }
+          localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        });
+        
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+          document.body.classList.add('dark-mode');
+          const icon = darkModeToggle.querySelector('.toggle-icon');
+          const text = darkModeToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = '☀️';
+            text.textContent = 'Modo Claro';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

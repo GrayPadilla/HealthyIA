@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recomendaciones - Healthy IA</title>
+  <link rel="icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="stylesheet" href="recomendaciones.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../../imagenes/logo.jpg" alt="logo" />
+      <h2>Healthy IA</h2>
+    </div>
+    <nav>
+      <a href="../Principal/principal.html">Home</a>
+      <a href="../lista-comidas/lista-comidas.html">Comidas</a>
+      <a href="../mi-perfil/mi-perfil.html">Mi Perfil</a>
+      <button class="login active">Recomendaciones</button>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="hero-section">
+      <h1>🎯 Recomendaciones Personalizadas</h1>
+      <p>Basadas en tu perfil, objetivos y preferencias alimentarias</p>
+    </section>
+
+    <section class="recommendations-grid">
+      <div class="recommendation-card featured">
+        <div class="card-header">
+          <h3>🌟 Recomendación del Día</h3>
+          <span class="badge">Para ti</span>
+        </div>
+        <div class="food-preview">
+          <img src="../../imagenes/comidas.jpg" alt="Ensalada mediterránea">
+          <div class="food-info">
+            <h4>Ensalada Mediterránea</h4>
+            <p>Perfecta para tu objetivo de pérdida de peso</p>
+            <div class="stats">
+              <span>🔥 350 kcal</span>
+              <span>💪 18g proteína</span>
+              <span>⭐ 95% match</span>
+            </div>
+          </div>
+        </div>
+        <button class="try-btn" onclick="verDetalle('ensalada-mediterranea')">Probar Ahora</button>
+      </div>
+
+      <div class="recommendation-card">
+        <div class="card-header">
+          <h3>🥗 Para Desayunar</h3>
+        </div>
+        <div class="food-grid">
+          <div class="food-mini" onclick="verDetalle('avena-frutas')">
+            <img src="../../imagenes/comidas.jpg" alt="Avena">
+            <h5>Avena con Frutas</h5>
+            <span class="calories">280 kcal</span>
+          </div>
+          <div class="food-mini" onclick="verDetalle('smoothie-verde')">
+            <img src="../../imagenes/frutas.jpg" alt="Smoothie">
+            <h5>Smoothie Verde</h5>
+            <span class="calories">220 kcal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendation-card">
+        <div class="card-header">
+          <h3>🍽️ Para Almorzar</h3>
+        </div>
+        <div class="food-grid">
+          <div class="food-mini" onclick="verDetalle('pollo-verduras')">
+            <img src="../../imagenes/carne.jpg" alt="Pollo">
+            <h5>Pollo con Verduras</h5>
+            <span class="calories">420 kcal</span>
+          </div>
+          <div class="food-mini" onclick="verDetalle('ensalada-quinoa')">
+            <img src="../../imagenes/comidas.jpg" alt="Quinoa">
+            <h5>Ensalada de Quinoa</h5>
+            <span class="calories">380 kcal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendation-card">
+        <div class="card-header">
+          <h3>🌙 Para Cenar</h3>
+        </div>
+        <div class="food-grid">
+          <div class="food-mini" onclick="verDetalle('pescado-vapor')">
+            <img src="../../imagenes/carne.jpg" alt="Pescado">
+            <h5>Pescado al Vapor</h5>
+            <span class="calories">290 kcal</span>
+          </div>
+          <div class="food-mini" onclick="verDetalle('sopa-verduras')">
+            <img src="../../imagenes/comidas.jpg" alt="Sopa">
+            <h5>Sopa de Verduras</h5>
+            <span class="calories">180 kcal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendation-card tips-card">
+        <div class="card-header">
+          <h3>💡 Tips Nutricionales</h3>
+        </div>
+        <div class="tips-list">
+          <div class="tip">
+            <span class="tip-icon">💧</span>
+            <p>Bebe al menos 8 vasos de agua al día para mantenerte hidratado</p>
+          </div>
+          <div class="tip">
+            <span class="tip-icon">🥗</span>
+            <p>Incluye verduras en todas tus comidas principales</p>
+          </div>
+          <div class="tip">
+            <span class="tip-icon">⏰</span>
+            <p>Come cada 3-4 horas para mantener tu metabolismo activo</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendation-card progress-card">
+        <div class="card-header">
+          <h3>📊 Tu Progreso Semanal</h3>
+        </div>
+        <div class="progress-summary">
+          <div class="progress-item">
+            <h4>Objetivo Calórico</h4>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+            <span>85% cumplido</span>
+          </div>
+          <div class="progress-item">
+            <h4>Hidratación</h4>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%"></div>
+            </div>
+            <span>70% cumplido</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="action-section">
+      <button class="action-btn" onclick="generateNewRecommendations()">
+        🔄 Generar Nuevas Recomendaciones
+      </button>
+      <button class="action-btn secondary" onclick="viewAllFoods()">
+        🍽️ Ver Todas las Comidas
+      </button>
+    </section>
+  </main>
+
+  <!-- Botón de Modo Oscuro/Claro -->
+  <button type="button" id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro/claro">
+    <span class="toggle-icon">🌙</span>
+    <span class="toggle-text">Modo Oscuro</span>
+  </button>
+
+  <script src="../../Controlador/C-recomendaciones/recomendaciones.js"></script>
+  <script>
+    // Script para modo oscuro/claro
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          const icon = this.querySelector('.toggle-icon');
+          const text = this.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+          }
+          localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        });
+        
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+          document.body.classList.add('dark-mode');
+          const icon = darkModeToggle.querySelector('.toggle-icon');
+          const text = darkModeToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = '☀️';
+            text.textContent = 'Modo Claro';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

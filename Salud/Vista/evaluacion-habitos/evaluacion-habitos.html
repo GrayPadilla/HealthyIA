@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación de Hábitos Alimenticios - Healthy IA</title>
+  <link rel="icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="stylesheet" href="evaluacion-habitos.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../../imagenes/logo.jpg" alt="Healthy IA logo">
+      <h2>Healthy IA</h2>
+    </div>
+    <nav>
+      <a href="../Principal/principal.html">HOME</a>
+      <a href="../mi-perfil/mi-perfil.html">MI PERFIL</a>
+      <a href="../recomendaciones/recomendaciones.html">RECOMENDACIONES</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="evaluation-container">
+      <div class="header-section">
+        <h1>🍎 Evaluación de Hábitos Alimenticios</h1>
+        <p>Responde estas preguntas para que podamos conocerte mejor y ofrecerte recomendaciones personalizadas</p>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+        <span class="progress-text" id="progressText">Pregunta 1 de 10</span>
+      </div>
+
+      <form id="evaluationForm" class="evaluation-form">
+        <!-- Pregunta 1: Frecuencia de comidas -->
+        <div class="question-card active" data-question="1">
+          <h3>¿Cuántas comidas realizas al día?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="frecuenciaComidas" value="2">
+              <span>2 comidas</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frecuenciaComidas" value="3">
+              <span>3 comidas</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frecuenciaComidas" value="4">
+              <span>4 comidas</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frecuenciaComidas" value="5">
+              <span>5 o más comidas</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 2: Horario de desayuno -->
+        <div class="question-card" data-question="2">
+          <h3>¿A qué hora sueles desayunar?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="horarioDesayuno" value="antes-7">
+              <span>Antes de las 7:00 AM</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="horarioDesayuno" value="7-9">
+              <span>Entre 7:00 AM y 9:00 AM</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="horarioDesayuno" value="9-11">
+              <span>Entre 9:00 AM y 11:00 AM</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="horarioDesayuno" value="despues-11">
+              <span>Después de las 11:00 AM</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="horarioDesayuno" value="no-desayuno">
+              <span>No desayuno regularmente</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 3: Consumo de agua -->
+        <div class="question-card" data-question="3">
+          <h3>¿Cuántos vasos de agua bebes al día?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="consumoAgua" value="menos-4">
+              <span>Menos de 4 vasos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoAgua" value="4-6">
+              <span>4 a 6 vasos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoAgua" value="7-9">
+              <span>7 a 9 vasos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoAgua" value="mas-9">
+              <span>Más de 9 vasos</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 4: Consumo de frutas y verduras -->
+        <div class="question-card" data-question="4">
+          <h3>¿Cuántas porciones de frutas y verduras consumes al día?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="frutasVerduras" value="0-1">
+              <span>0 a 1 porción</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frutasVerduras" value="2-3">
+              <span>2 a 3 porciones</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frutasVerduras" value="4-5">
+              <span>4 a 5 porciones</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="frutasVerduras" value="mas-5">
+              <span>Más de 5 porciones</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 5: Consumo de proteínas -->
+        <div class="question-card" data-question="5">
+          <h3>¿Con qué frecuencia consumes proteínas (carne, pescado, huevos, legumbres)?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="consumoProteinas" value="diario">
+              <span>Diariamente</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoProteinas" value="4-6">
+              <span>4 a 6 veces por semana</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoProteinas" value="2-3">
+              <span>2 a 3 veces por semana</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="consumoProteinas" value="menos-2">
+              <span>Menos de 2 veces por semana</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 6: Consumo de alimentos procesados -->
+        <div class="question-card" data-question="6">
+          <h3>¿Con qué frecuencia consumes alimentos procesados o comida rápida?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="alimentosProcesados" value="diario">
+              <span>Diariamente</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="alimentosProcesados" value="3-4">
+              <span>3 a 4 veces por semana</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="alimentosProcesados" value="1-2">
+              <span>1 a 2 veces por semana</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="alimentosProcesados" value="rara-vez">
+              <span>Rara vez o nunca</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 7: Actividad física -->
+        <div class="question-card" data-question="7">
+          <h3>¿Cuántas veces a la semana realizas actividad física?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="actividadFisica" value="0">
+              <span>No realizo actividad física</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="actividadFisica" value="1-2">
+              <span>1 a 2 veces</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="actividadFisica" value="3-4">
+              <span>3 a 4 veces</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="actividadFisica" value="5-mas">
+              <span>5 o más veces</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 8: Objetivo nutricional -->
+        <div class="question-card" data-question="8">
+          <h3>¿Cuál es tu principal objetivo nutricional?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="objetivoNutricional" value="perder-peso">
+              <span>Perder peso</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="objetivoNutricional" value="ganar-peso">
+              <span>Ganar peso</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="objetivoNutricional" value="mantener-peso">
+              <span>Mantener peso</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="objetivoNutricional" value="ganar-musculo">
+              <span>Ganar músculo</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="objetivoNutricional" value="mejorar-salud">
+              <span>Mejorar salud general</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 9: Nivel de cocina -->
+        <div class="question-card" data-question="9">
+          <h3>¿Qué tan cómodo te sientes cocinando?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="nivelCocina" value="principiante">
+              <span>Principiante - Prefiero comidas simples</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="nivelCocina" value="intermedio">
+              <span>Intermedio - Puedo seguir recetas</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="nivelCocina" value="avanzado">
+              <span>Avanzado - Me gusta experimentar</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="nivelCocina" value="no-cocino">
+              <span>No cocino - Prefiero comida preparada</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pregunta 10: Tiempo disponible -->
+        <div class="question-card" data-question="10">
+          <h3>¿Cuánto tiempo tienes disponible para preparar comidas?</h3>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="tiempoDisponible" value="menos-15">
+              <span>Menos de 15 minutos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="tiempoDisponible" value="15-30">
+              <span>15 a 30 minutos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="tiempoDisponible" value="30-60">
+              <span>30 a 60 minutos</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="tiempoDisponible" value="mas-60">
+              <span>Más de 60 minutos</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="prevBtn" style="display: none;">← Anterior</button>
+          <button type="button" class="btn-primary" id="nextBtn">Siguiente →</button>
+          <button type="submit" class="btn-primary" id="submitBtn" style="display: none;">Finalizar Evaluación</button>
+        </div>
+      </form>
+
+      <div id="resultsSection" class="results-section" style="display: none;">
+        <h2>✅ Evaluación Completada</h2>
+        <div id="resultsContent"></div>
+        <div class="results-actions">
+          <button class="btn-primary" onclick="window.location.href='../recomendaciones/recomendaciones.html'">Ver Recomendaciones</button>
+          <button class="btn-secondary" onclick="window.location.href='../mi-perfil/mi-perfil.html'">Ir a Mi Perfil</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Botón de Modo Oscuro/Claro -->
+  <button type="button" id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro/claro">
+    <span class="toggle-icon">🌙</span>
+    <span class="toggle-text">Modo Oscuro</span>
+  </button>
+
+  <script type="module" src="../../Controlador/C-evaluacion-habitos/evaluacion-habitos.js"></script>
+  <script>
+    // Script para modo oscuro/claro
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          const icon = this.querySelector('.toggle-icon');
+          const text = this.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+          }
+          localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        });
+        
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+          document.body.classList.add('dark-mode');
+          const icon = darkModeToggle.querySelector('.toggle-icon');
+          const text = darkModeToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = '☀️';
+            text.textContent = 'Modo Claro';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

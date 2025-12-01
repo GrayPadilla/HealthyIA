@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de Comida - Healthy IA</title>
+  <link rel="icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="../../imagenes/logo.jpg">
+  <link rel="stylesheet" href="comida-detalle.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="../../imagenes/logo.jpg" alt="logo" />
+      <h2>Healthy IA</h2>
+    </div>
+    <nav>
+      <a href="../Principal/principal.html">Home</a>
+      <a href="../lista-comidas/lista-comidas.html">← Volver a Lista</a>
+      <a href="../mi-perfil/mi-perfil.html">Mi Perfil</a>
+      <button class="ia" onclick="location.href='../IA-opciones/IA-opciones.html'">IA Nutricional</button>
+    </nav>
+  </header>
+
+  <!-- LOADING -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Cargando información nutricional...</p>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="mainContent" class="main-content hidden">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="food-image-container">
+          <img id="foodImage" src="" alt="" class="food-image">
+          <div class="image-overlay">
+            <button class="favorite-btn" onclick="toggleFavorite()">
+              <span id="heartIcon">🤍</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="food-info">
+          <div class="category-badge" id="categoryBadge">
+            <span id="categoryIcon"></span>
+            <span id="categoryText"></span>
+          </div>
+          
+          <h1 id="foodTitle">Nombre del Producto</h1>
+          <p id="foodDescription">Descripción del producto</p>
+          
+          <div class="quick-stats">
+            <div class="stat">
+              <span class="stat-value" id="caloriesValue">000</span>
+              <span class="stat-label">kcal</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="timeValue">0</span>
+              <span class="stat-label">min</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="difficultyValue">Fácil</span>
+              <span class="stat-label">dificultad</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN DE TABS -->
+    <section class="tabs-section">
+      <div class="tabs">
+        <button class="tab active" data-tab="nutrition">📊 Nutrición</button>
+        <button class="tab" data-tab="ingredients">🥬 Ingredientes</button>
+        <button class="tab" data-tab="preparation">👨‍🍳 Preparación</button>
+        <button class="tab" data-tab="benefits">💚 Beneficios</button>
+      </div>
+    </section>
+
+    <!-- CONTENIDO DE TABS -->
+    <section class="tab-content-section">
+      <!-- TAB NUTRICIÓN -->
+      <div id="nutritionTab" class="tab-content active">
+        <div class="nutrition-container">
+          <div class="macros-circle">
+            <div class="macro-item">
+              <div class="macro-circle proteinas">
+                <span class="macro-icon">🥩</span>
+              </div>
+              <div class="macro-info">
+                <h3>Proteínas</h3>
+                <span id="proteinValue">0g</span>
+              </div>
+            </div>
+            <div class="macro-item">
+              <div class="macro-circle grasas">
+                <span class="macro-icon">🥑</span>
+              </div>
+              <div class="macro-info">
+                <h3>Grasas</h3>
+                <span id="fatValue">0g</span>
+              </div>
+            </div>
+            <div class="macro-item">
+              <div class="macro-circle carbohidratos">
+                <span class="macro-icon">🍞</span>
+              </div>
+              <div class="macro-info">
+                <h3>Carbohidratos</h3>
+                <span id="carbValue">0g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detailed-nutrition">
+            <h3>Información Nutricional Detallada</h3>
+            <div class="nutrition-grid">
+              <div class="nutrition-item">
+                <span class="nutrition-label">Fibra</span>
+                <span class="nutrition-value" id="fiberValue">0g</span>
+              </div>
+              <div class="nutrition-item">
+                <span class="nutrition-label">Azúcar</span>
+                <span class="nutrition-value" id="sugarValue">0g</span>
+              </div>
+              <div class="nutrition-item">
+                <span class="nutrition-label">Sodio</span>
+                <span class="nutrition-value" id="sodiumValue">0mg</span>
+              </div>
+              <div class="nutrition-item">
+                <span class="nutrition-label">Calorías totales</span>
+                <span class="nutrition-value" id="totalCalories">0 kcal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB INGREDIENTES -->
+      <div id="ingredientsTab" class="tab-content">
+        <div class="ingredients-container">
+          <h3>Ingredientes Principales</h3>
+          <div class="ingredients-list" id="ingredientsList">
+            <!-- Se llenarán dinámicamente -->
+          </div>
+          
+          <div class="shopping-section">
+            <h4>¿Necesitas comprar ingredientes?</h4>
+            <button class="shopping-btn" onclick="createShoppingList()">
+              🛒 Crear Lista de Compras
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PREPARACIÓN -->
+      <div id="preparationTab" class="tab-content">
+        <div class="preparation-container">
+          <div class="prep-header">
+            <div class="prep-info">
+              <span class="prep-time">⏱️ <span id="prepTime">0 min</span></span>
+              <span class="prep-difficulty">📊 <span id="prepDifficulty">Fácil</span></span>
+            </div>
+          </div>
+          
+          <h3>Pasos de Preparación</h3>
+          <div class="preparation-steps" id="preparationSteps">
+            <!-- Se llenarán dinámicamente -->
+          </div>
+
+          <div class="tips-section">
+            <h4>💡 Consejos del Chef</h4>
+            <div class="tips-list">
+              <div class="tip">
+                <span class="tip-icon">🔥</span>
+                <p>Mantén el fuego a temperatura media para evitar que se queme.</p>
+              </div>
+              <div class="tip">
+                <span class="tip-icon">🧂</span>
+                <p>Sazona al gusto, siempre puedes agregar más sal después.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB BENEFICIOS -->
+      <div id="benefitsTab" class="tab-content">
+        <div class="benefits-container">
+          <h3>Beneficios para la Salud</h3>
+          <div class="benefits-grid" id="benefitsList">
+            <!-- Se llenarán dinámicamente -->
+          </div>
+
+          <div class="recommendations-section">
+            <h4>Recomendaciones Personalizadas</h4>
+            <div class="recommendation-card">
+              <div class="recommendation-icon">🎯</div>
+              <div class="recommendation-content">
+                <h5>Para tu perfil</h5>
+                <p id="personalizedRecommendation">Esta comida se adapta perfectamente a tus objetivos nutricionales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCIONES -->
+    <section class="actions-section">
+      <button class="action-btn primary" onclick="addToMealPlan()">
+        📅 Agregar a Mi Plan
+      </button>
+      <button class="action-btn secondary" onclick="shareRecipe()">
+        📤 Compartir Receta
+      </button>
+      <button class="action-btn secondary" onclick="findSimilar()">
+        🔍 Comidas Similares
+      </button>
+    </section>
+
+    <!-- COMIDAS RELACIONADAS -->
+    <section class="related-section">
+      <h3>También te podría interesar</h3>
+      <div class="related-foods" id="relatedFoods">
+        <!-- Se llenarán dinámicamente -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón de Modo Oscuro/Claro -->
+  <button type="button" id="darkModeToggle" class="dark-mode-toggle" aria-label="Cambiar modo oscuro/claro">
+    <span class="toggle-icon">🌙</span>
+    <span class="toggle-text">Modo Oscuro</span>
+  </button>
+
+  <!-- 📊 Cargar sistema de métricas primero -->
+  <script src="../../Controlador/metricas.js"></script>
+  <script src="../../Controlador/C-comida-detalle/comida-detalle.js"></script>
+  <script>
+    // Script para modo oscuro/claro
+    document.addEventListener('DOMContentLoaded', function() {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          const icon = this.querySelector('.toggle-icon');
+          const text = this.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = isDark ? '☀️' : '🌙';
+            text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+          }
+          localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        });
+        
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'enabled') {
+          document.body.classList.add('dark-mode');
+          const icon = darkModeToggle.querySelector('.toggle-icon');
+          const text = darkModeToggle.querySelector('.toggle-text');
+          if (icon && text) {
+            icon.textContent = '☀️';
+            text.textContent = 'Modo Claro';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
