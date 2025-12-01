@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - ALISSA</title>
+    <link rel="icon" type="image/jpeg" href="../../Salud/imagenes/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="../../Salud/imagenes/logo.jpg">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="../../Salud/imagenes/logo.jpg" alt="Logo" class="sidebar-logo">
+                    <h2>ALISSA</h2>
+                </div>
+                <p>Panel de Administración</p>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="menu-item" data-section="menus">
+                    <i class="fas fa-utensils"></i>
+                    <span>Gestión de Menús</span>
+                </div>
+                <div class="menu-item" data-section="inventory">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventario</span>
+                </div>
+                <div class="menu-item" data-section="waste">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>Control de Desperdicios</span>
+                </div>
+                <div class="menu-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reportes</span>
+                </div>
+                <div class="menu-item" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>Usuarios</span>
+                </div>
+                <div class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="menu-item" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="header">
+                <h1 id="section-title">Dashboard</h1>
+                <div class="header-right">
+                    <button type="button" id="darkModeToggle" class="dark-mode-toggle-header" aria-label="Cambiar modo oscuro/claro">
+                        <span class="toggle-icon">🌙</span>
+                        <span class="toggle-text">Modo Oscuro</span>
+                    </button>
+                    <div class="user-info">
+                        <img src="https://ui-avatars.com/api/?name=Administrador&background=2b7cff&color=fff" alt="Admin">
+                        <div>
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Cafetería UCV</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Dashboard -->
+            <div id="dashboard" class="content-section active-section">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-usuarios">0</h3>
+                            <p>Usuarios Activos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card dashboard-card">
+                        <div class="stat-icon menus">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-menus">0</h3>
+                            <p>Menús Publicados</p>
+                        </div>
+                    </div>
+                    <div class="stat-card dashboard-card">
+                        <div class="stat-icon waste">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-desperdicio">0%</h3>
+                            <p>Reducción de Desperdicio</p>
+                        </div>
+                    </div>
+                    <div class="stat-card dashboard-card">
+                        <div class="stat-icon reports">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="stat-inventario">0</h3>
+                            <p>Productos en Inventario</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2>Actividad Reciente</h2>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon success">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Nuevo menú "Ensalada Mediterránea" publicado</p>
+                                    <span class="activity-time">Hace 5 minutos</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>Stock bajo de pollo - solo 15 unidades disponibles</p>
+                                    <span class="activity-time">Hace 1 hora</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon info">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p>25 nuevos usuarios registrados hoy</p>
+                                    <span class="activity-time">Hace 3 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2>Predicción de Demanda</h2>
+                            <button class="btn btn-primary" id="update-prediction">
+                                <i class="fas fa-sync-alt"></i> Actualizar
+                            </button>
+                        </div>
+                        <div class="prediction-chart">
+                            <canvas id="demandChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Gestión de Menús -->
+            <div id="menus" class="content-section">
+                <div class="section-header">
+                    <h2>Gestión de Menús</h2>
+                    <button class="btn btn-primary" id="add-menu-btn">
+                        <i class="fas fa-plus"></i> Nuevo Menú
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Calorías</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección Inventario -->
+            <div id="inventory" class="content-section">
+                <div class="section-header">
+                    <h2>Gestión de Inventario</h2>
+                    <button class="btn btn-primary" id="add-inventory-btn">
+                        <i class="fas fa-plus"></i> Agregar Producto
+                    </button>
+                </div>
+                
+                <div class="inventory-alerts">
+                    <div class="alert warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>5 productos con stock bajo</span>
+                    </div>
+                    <div class="alert danger">
+                        <i class="fas fa-times-circle"></i>
+                        <span>2 productos agotados</span>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Stock Actual</th>
+                                <th>Stock Mínimo</th>
+                                <th>Estado</th>
+                                <th>Última Actualización</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección Control de Desperdicios -->
+            <div id="waste" class="content-section">
+                <div class="section-header">
+                    <h2>Control de Desperdicios</h2>
+                    <button class="btn btn-primary" id="add-waste-btn">
+                        <i class="fas fa-plus"></i> Registrar Desperdicio
+                    </button>
+                </div>
+
+                <div class="waste-stats">
+                    <div class="waste-stat-card">
+                        <h3>Desperdicio Semanal</h3>
+                        <div class="waste-amount">45 kg</div>
+                        <div class="waste-trend down">↓ 12% vs semana anterior</div>
+                    </div>
+                    <div class="waste-stat-card">
+                        <h3>Ahorro Mensual</h3>
+                        <div class="waste-amount">S/ 1,250</div>
+                        <div class="waste-trend up">↑ 8% vs mes anterior</div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Motivo</th>
+                                <th>Costo Estimado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección Reportes -->
+            <div id="reports" class="content-section">
+                <div class="section-header">
+                    <h2>Reportes y Análisis</h2>
+                    <div class="report-filters">
+                        <select class="form-control" id="report-period">
+                            <option value="week">Última semana</option>
+                            <option value="month">Último mes</option>
+                            <option value="quarter">Último trimestre</option>
+                        </select>
+                        <button id="export-report-btn" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- coloca esto dentro de admin.html, en la sección Reportes (por ejemplo junto a report-filters) -->
+                <div id="report-warning" class="report-warning" role="alert" aria-live="polite" style="display:none; margin-top:8px; padding:10px; border-radius:6px; background:#fff4f4; color:#b91c1c; border:1px solid #fca5a5;">
+                <!-- El texto se llenará desde JS -->
+                </div>
+
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <h3>Consumo por Categoría</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Tendencias de Desperdicio</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="wasteTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Preferencias de Usuarios</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="preferenceChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Eficiencia de Producción</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="efficiencyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Usuarios -->
+            <div id="users" class="content-section">
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                    <div class="user-filters">
+                        <input type="text" class="form-control" placeholder="Buscar usuario...">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Último Acceso</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección Configuración -->
+            <div id="settings" class="content-section">
+                <div class="section-header">
+                    <h2>Configuración del Sistema</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3><i class="fas fa-bell"></i> Alertas y Notificaciones</h3>
+                        <div class="setting-options">
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                                Alertas de stock bajo
+                            </label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                                Notificaciones de desperdicio
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3><i class="fas fa-chart-line"></i> Predicción IA</h3>
+                        <div class="setting-options">
+                            <label>Modelo de predicción:</label>
+                            <select class="form-control">
+                                <option>Lasso Regression</option>
+                                <option>XGBoost</option>
+                                <option>Random Forest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3><i class="fas fa-shield-alt"></i> Seguridad</h3>
+                        <div class="setting-options">
+                            <button class="btn btn-secondary">Cambiar Contraseña</button>
+                            <button class="btn btn-secondary">Configurar 2FA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para agregar menú -->
+    <div id="menu-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="menu-modal-title">Agregar Nuevo Menú</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+
+            <form id="menu-form">
+                <input type="hidden" id="menu-id" value="">
+                
+                <!-- ============================= -->
+                <!-- 1. Información básica -->
+                <!-- ============================= -->
+                <h3 class="modal-subtitle">Información Básica</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-name">Nombre del Menú</label>
+                        <input type="text" id="menu-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-price">Precio (S/)</label>
+                        <input type="number" id="menu-price" class="form-control" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="menu-description">Descripción</label>
+                    <textarea id="menu-description" class="form-control" rows="3" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-calories">Calorías</label>
+                        <input type="number" id="menu-calories" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="menu-category">Categoría</label>
+                        <select id="menu-category" class="form-control" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="Desayuno">🌅 Desayuno</option>
+                            <option value="Almuerzo">☀️ Almuerzo</option>
+                            <option value="Cena">🌙 Cena</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ============================= -->
+                <!-- 2. Imagen -->
+                <!-- ============================= -->
+                <h3 class="modal-subtitle">Imagen del Menú</h3>
+
+                <div class="form-group">
+                    <label for="menu-image">Subir imagen</label>
+                    <div class="file-upload-container">
+                        <input type="file" id="menu-image" class="form-control file-input" accept="image/*">
+                        <div class="file-preview" id="file-preview" style="display: none;">
+                            <img id="preview-image" src="" alt="Vista previa" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-top: 10px;">
+                            <p id="file-name" style="margin-top: 5px; color: #666; font-size: 0.9rem;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================= -->
+                <!-- 3. Información nutricional -->
+                <!-- ============================= -->
+                <h3 class="modal-subtitle">Información Nutricional</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-proteinas">Proteínas (g)</label>
+                        <input type="number" id="menu-proteinas" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-carbohidratos">Carbohidratos (g)</label>
+                        <input type="number" id="menu-carbohidratos" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-grasas">Grasas (g)</label>
+                        <input type="number" id="menu-grasas" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-fibra">Fibra (g)</label>
+                        <input type="number" id="menu-fibra" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-azucar">Azúcar (g)</label>
+                        <input type="number" id="menu-azucar" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-sodio">Sodio (mg)</label>
+                        <input type="number" id="menu-sodio" class="form-control">
+                    </div>
+                </div>
+
+                <!-- ============================= -->
+                <!-- 4. Detalles adicionales -->
+                <!-- ============================= -->
+                <h3 class="modal-subtitle">Detalles de Preparación</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-tiempo">Tiempo estimado</label>
+                        <input type="text" id="menu-tiempo" class="form-control" placeholder="Ej: 20 minutos">
+                    </div>
+                    <div class="form-group">
+                        <label for="menu-dificultad">Dificultad</label>
+                        <select id="menu-dificultad" class="form-control">
+                            <option value="">Seleccionar</option>
+                            <option value="fácil">Fácil</option>
+                            <option value="media">Media</option>
+                            <option value="difícil">Difícil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="menu-ingredientes">Ingredientes (separados por coma)</label>
+                    <input type="text" id="menu-ingredientes" class="form-control" placeholder="Ej: Lechuga, Tomate, Pollo">
+                </div>
+
+                <div class="form-group">
+                    <label for="menu-preparacion">Preparación</label>
+                    <textarea id="menu-preparacion" class="form-control" rows="4" placeholder="Describe la preparación..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="menu-tags">Etiquetas (tags separadas por coma)</label>
+                    <input type="text" id="menu-tags" class="form-control" placeholder="Ej: saludable, ligero, sin gluten">
+                </div>
+
+                <div class="form-group">
+                    <label for="menu-beneficios">Beneficios (separados por coma)</label>
+                    <input type="text" id="menu-beneficios" class="form-control" placeholder="Ej: Alto en fibra, Bajas calorías">
+                </div>
+
+                <!-- ============================= -->
+                <!-- Footer -->
+                <!-- ============================= -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Menú</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para agregar/editar INVENTARIO -->
+    <div id="inventory-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h2 id="inventory-modal-title">Agregar Producto</h2>
+            <button class="close-btn inventory-close">&times;</button>
+            </div>
+            <form id="inventory-form">
+            <input type="hidden" id="inventory-id" value="">
+            <div class="form-group">
+                <label for="inv-nombre">Nombre del Producto</label>
+                <input type="text" id="inv-nombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="inv-categoria">Categoría</label>
+                <input type="text" id="inv-categoria" class="form-control" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                <label for="inv-stock-actual">Stock Actual</label>
+                <input type="number" id="inv-stock-actual" class="form-control" step="0.01" required>
+                </div>
+                <div class="form-group">
+                <label for="inv-stock-minimo">Stock Mínimo</label>
+                <input type="number" id="inv-stock-minimo" class="form-control" step="0.01" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-modal inventory-close">Cancelar</button>
+                <button id="save-inventory" type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para agregar/editar DESPERDICIO -->
+    <div id="waste-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h2 id="waste-modal-title">Registrar Desperdicio</h2>
+        <button class="close-btn waste-close">&times;</button>
+        </div>
+        <form id="waste-form">
+        <input type="hidden" id="waste-id" value="">
+        <div class="form-group">
+            <label for="waste-fecha">Fecha</label>
+            <input type="date" id="waste-fecha" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="waste-producto">Producto</label>
+            <input type="text" id="waste-producto" class="form-control" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+            <label for="waste-cantidad">Cantidad</label>
+            <input type="number" id="waste-cantidad" class="form-control" step="0.01" required>
+            </div>
+            <div class="form-group">
+            <label for="waste-costo">Costo Estimado (S/)</label>
+            <input type="number" id="waste-costo" class="form-control" step="0.01" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="waste-motivo">Motivo</label>
+            <input type="text" id="waste-motivo" class="form-control">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-modal waste-close">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Desperdicio</button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <!-- Modal para editar USUARIO -->
+    <div id="user-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="user-modal-title">Editar Usuario</h2>
+                <button class="close-btn user-close">&times;</button>
+            </div>
+            <form id="user-form">
+                <input type="hidden" id="user-id" value="">
+                <div class="form-group">
+                    <label for="user-nombre">Nombre</label>
+                    <input type="text" id="user-nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-rol">Rol</label>
+                    <select id="user-rol" class="form-control" required>
+                        <option value="usuario">Usuario</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="user-activo">Estado</label>
+                    <select id="user-activo" class="form-control" required>
+                        <option value="true">Activo</option>
+                        <option value="false">Inactivo</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button id="user-close" type="button" class="btn btn-secondary close-modal user-close">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chart.js (necesario para reportes) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- 🎛️ Cargar controlador del panel de administración -->
+    <script type="module" src="adminController.js"></script>
+    <!-- 📝 Cargar JavaScript básico para UI -->
+    <script src="admin.js"></script>
+    <script>
+        // Script para modo oscuro/claro - Ejecutar solo una vez
+        (function() {
+            if (window.adminDarkModeInitialized) return;
+            window.adminDarkModeInitialized = true;
+            
+            function initDarkMode() {
+                const darkModeToggle = document.getElementById('darkModeToggle');
+                if (!darkModeToggle) return;
+                
+                // Remover listeners anteriores si existen
+                const newToggle = darkModeToggle.cloneNode(true);
+                darkModeToggle.parentNode.replaceChild(newToggle, darkModeToggle);
+                
+                newToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.body.classList.toggle('dark-mode');
+                    const isDark = document.body.classList.contains('dark-mode');
+                    const icon = this.querySelector('.toggle-icon');
+                    const text = this.querySelector('.toggle-text');
+                    if (icon && text) {
+                        icon.textContent = isDark ? '☀️' : '🌙';
+                        text.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+                    }
+                    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+                });
+                
+                const savedMode = localStorage.getItem('darkMode');
+                if (savedMode === 'enabled') {
+                    document.body.classList.add('dark-mode');
+                    const icon = newToggle.querySelector('.toggle-icon');
+                    const text = newToggle.querySelector('.toggle-text');
+                    if (icon && text) {
+                        icon.textContent = '☀️';
+                        text.textContent = 'Modo Claro';
+                    }
+                }
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDarkMode);
+            } else {
+                initDarkMode();
+            }
+        })();
+    </script>
+    <script>
+        window.adminUIInitialized = false;
+    </script>
+</body>
+</html>

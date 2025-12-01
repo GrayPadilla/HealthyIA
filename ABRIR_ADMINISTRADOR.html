@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir Administrador - Healthy IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2b7cff 0%, #1a5fd1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #2b7cff;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #2b7cff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #1a5fd1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(43, 124, 255, 0.4);
+        }
+        .btn-secondary {
+            background: #64748b;
+        }
+        .btn-secondary:hover {
+            background: #475569;
+        }
+        .info {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .info code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2b7cff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Panel de Administración</h1>
+        
+        <div id="status" class="status">
+            <span id="status-text">Verificando servidor...</span>
+            <span id="loading" class="loading"></span>
+        </div>
+
+        <div id="buttons" style="display: none;">
+            <a href="http://localhost:8000/Administrador/admin/admin.html" class="btn" target="_blank">
+                🔐 Abrir Administrador
+            </a>
+            <br>
+            <a href="http://localhost:8000/Salud/Vista/Principal/principal.html" class="btn btn-secondary" target="_blank">
+                🏠 Ver Pantalla Principal
+            </a>
+        </div>
+
+        <div class="info" id="info" style="display: none;">
+            <h3>📋 Información:</h3>
+            <p><strong>URL del Administrador:</strong></p>
+            <code id="admin-url">http://localhost:8000/Administrador/admin/admin.html</code>
+            <br><br>
+            <p><strong>Si el servidor no está corriendo:</strong></p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Ejecuta: <code>python -m http.server 8000</code></li>
+                <li>O haz doble clic en <code>servidor-local.bat</code></li>
+                <li>Luego recarga esta página</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        async function verificarServidor() {
+            const statusDiv = document.getElementById('status');
+            const statusText = document.getElementById('status-text');
+            const loading = document.getElementById('loading');
+            const buttons = document.getElementById('buttons');
+            const info = document.getElementById('info');
+
+            try {
+                // Intentar hacer una petición al servidor
+                const response = await fetch('http://localhost:8000/', {
+                    method: 'HEAD',
+                    mode: 'no-cors'
+                });
+                
+                // Si llegamos aquí, el servidor está respondiendo
+                statusDiv.className = 'status success';
+                statusText.textContent = '✅ Servidor funcionando correctamente';
+                loading.style.display = 'none';
+                buttons.style.display = 'block';
+                info.style.display = 'block';
+                
+            } catch (error) {
+                // Verificar si es un error de CORS (que significa que el servidor SÍ está corriendo)
+                try {
+                    const testResponse = await fetch('http://localhost:8000/test-admin.html');
+                    if (testResponse.ok) {
+                        statusDiv.className = 'status success';
+                        statusText.textContent = '✅ Servidor funcionando correctamente';
+                        loading.style.display = 'none';
+                        buttons.style.display = 'block';
+                        info.style.display = 'block';
+                        return;
+                    }
+                } catch (e) {
+                    // El servidor no está corriendo
+                    statusDiv.className = 'status error';
+                    statusText.textContent = '❌ El servidor no está corriendo en el puerto 8000';
+                    loading.style.display = 'none';
+                    info.style.display = 'block';
+                }
+            }
+        }
+
+        // Verificar inmediatamente
+        verificarServidor();
+
+        // Verificar cada 2 segundos
+        setInterval(verificarServidor, 2000);
+    </script>
+</body>
+</html>
+

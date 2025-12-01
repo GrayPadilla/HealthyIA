@@ -1,0 +1,70 @@
+﻿========================================
+  REPORTE DE METRICAS SONARQUBE
+  Proyecto: Salud
+  Fecha: 2025-11-10 21:38:32
+========================================
+
+RESUMEN EJECUTIVO
+-----------------
+Estado General: REQUIERE ATENCION
+
+COMPLEJIDAD
+-----------
+Complejidad Ciclomatica Total: 429
+Complejidad Promedio por Archivo: 25.24
+Total de Funciones Detectadas: 1 35 30 38 0 20 1 0 9 16 2 3 1 4 1 0 2
+Archivos con Alta Complejidad (>20): 4
+
+Archivos con Mayor Complejidad:
+   - asistente-ia-fixed.js: 127 (Complejidad) - 816 lineas   - register-login.js: 31 (Complejidad) - 194 lineas   - alissa-smart-copy.js: 106.5 (Complejidad) - 536 lineas   - alissa-smart.js: 74 (Complejidad) - 419 lineas
+
+DUPLICACION DE CODIGO
+---------------------
+Lineas Duplicadas: 3120
+Porcentaje de Duplicacion: %
+Bloques Duplicados Detectados: 312
+
+Bloques Duplicados:
+   - alissa-smart-copy.js <-> alissa-smart.js: 5 lineas
+
+BUGS DETECTADOS
+---------------
+Total de Bugs: 8
+
+Detalles:
+   [Minor] alissa-smart-copy.js: Console.log encontrado (debe removerse en produccion)   [Minor] alissa-smart.js: Console.log encontrado (debe removerse en produccion)   [Minor] asistente-ia-fixed.js: Console.log encontrado (debe removerse en produccion)   [Minor] comida-detalle.js: Console.log encontrado (debe removerse en produccion)   [Minor] loginService.js: Console.log encontrado (debe removerse en produccion)   [Minor] register-login.js: Console.log encontrado (debe removerse en produccion)   [Minor] registerService.js: Console.log encontrado (debe removerse en produccion)   [Minor] admin.js: Console.log encontrado (debe removerse en produccion)
+
+VULNERABILIDADES DE SEGURIDAD
+------------------------------
+Total de Vulnerabilidades: 6
+
+Detalles:
+   [Major] alissa-smart-copy.js: Uso de innerHTML puede ser vulnerable a XSS   [Major] alissa-smart.js: Uso de innerHTML puede ser vulnerable a XSS   [Major] asistente-ia-fixed.js: Uso de innerHTML puede ser vulnerable a XSS   [Major] comida-detalle.js: Uso de innerHTML puede ser vulnerable a XSS   [Major] register-login.js: Uso de innerHTML puede ser vulnerable a XSS   [Major] admin.js: Uso de innerHTML puede ser vulnerable a XSS
+
+CODE SMELLS
+-----------
+Total de Code Smells: 10
+
+Detalles:
+   : 10 ocurrencias 
+Ejemplos:
+   [Major] alissa-smart-copy.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] alissa-smart.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] asistente-ia-fixed.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] comida-detalle.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] como-usar.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] lista-comidas.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] mi-perfil.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] principal.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] register-login.js: Funciones muy largas detectadas (mas de 200 caracteres)   [Major] admin.js: Funciones muy largas detectadas (mas de 200 caracteres)
+
+CONCLUSIONES Y RECOMENDACIONES
+-------------------------------
+âš ï¸  CRITICO: Se detectaron vulnerabilidades de seguridad que deben corregirse inmediatamente.
+
+âš ï¸  ATENCION: Varios archivos tienen alta complejidad ciclomatica. Considera refactorizar.
+
+RECOMENDACIONES GENERALES
+-------------------------
+1. Configura SonarCloud para obtener metricas completas y actualizadas
+2. Ejecuta analisis de SonarQube en cada Pull Request
+3. Corrige las vulnerabilidades de seguridad prioritariamente
+4. Refactoriza archivos con alta complejidad
+5. Reduce la duplicacion de codigo extrayendo funciones comunes
+6. Elimina console.log antes de produccion
+7. Considera usar herramientas de linting (ESLint)
+
+NOTA: Este es un analisis aproximado. Para metricas completas y precisas,
+      configura SonarCloud siguiendo CONFIGURAR_SONARQUBE.md

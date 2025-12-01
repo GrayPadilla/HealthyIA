@@ -1,0 +1,24 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "inventario",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "cafeteriaId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fechaActualizacion",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "__name__",
+          "order": "DESCENDING"
+        }
+      ],
+      "density": "SPARSE_ALL"
+    }
+  ],
+  "fieldOverrides": []
+}

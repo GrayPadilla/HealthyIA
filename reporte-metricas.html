@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Metricas - Salud</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 3px solid #4CAF50; padding-bottom: 10px; }
+        h2 { color: #555; margin-top: 30px; }
+        .metric { background: #f9f9f9; padding: 15px; margin: 10px 0; border-left: 4px solid #4CAF50; border-radius: 4px; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #4CAF50; }
+        .metric-label { color: #666; margin-top: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #4CAF50; color: white; }
+        tr:hover { background-color: #f5f5f5; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 32px; font-weight: bold; }
+        .stat-label { font-size: 14px; opacity: 0.9; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ðŸ“Š Reporte de Metricas Estaticas</h1>
+        <p><strong>Proyecto:</strong> Salud</p>
+        <p><strong>Fecha:</strong> 2025-11-10 21:35:00</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value">40</div>
+                <div class="stat-label">Archivos Analizados</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">9647</div>
+                <div class="stat-label">Total de Lineas</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">7977</div>
+                <div class="stat-label">Lineas de Codigo</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">241.18</div>
+                <div class="stat-label">Promedio por Archivo</div>
+            </div>
+        </div>
+        
+        <h2>Resumen General</h2>
+        <div class="metric">
+            <div class="metric-value">40</div>
+            <div class="metric-label">Total de archivos analizados</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">9647</div>
+            <div class="metric-label">Total de lineas</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">7977</div>
+            <div class="metric-label">Lineas de codigo</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">401</div>
+            <div class="metric-label">Lineas de comentarios</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">1269</div>
+            <div class="metric-label">Lineas vacias</div>
+        </div>
+        
+        <h2>Distribucion por Tipo de Archivo</h2>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr><td>JavaScript (.js)</td><td>17</td></tr>
+            <tr><td>HTML (.html)</td><td>11</td></tr>
+            <tr><td>CSS (.css)</td><td>11</td></tr>
+            <tr><td>Python (.py)</td><td>1</td></tr>
+        </table>
+        
+        <h2>Top 20 Archivos por TamaÃ±o</h2>
+        <table>
+            <tr>
+                <th>Archivo</th>
+                <th>Total</th>
+                <th>Codigo</th>
+                <th>Comentarios</th>
+                <th>Vacias</th>
+            </tr>            <tr>
+                <td>Salud\Controlador\C-asistente-ia\asistente-ia-fixed.js</td>
+                <td>816</td>
+                <td>600</td>
+                <td>82</td>
+                <td>134</td>
+            </tr>
+            <tr>
+                <td>Administrador\admin\admin.css</td>
+                <td>779</td>
+                <td>640</td>
+                <td>19</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\comida-detalle\comida-detalle.css</td>
+                <td>701</td>
+                <td>581</td>
+                <td>16</td>
+                <td>104</td>
+            </tr>
+            <tr>
+                <td>Salud\Controlador\C-asistente-ia\alissa-smart-copy.js</td>
+                <td>536</td>
+                <td>401</td>
+                <td>50</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\mi-perfil\mi-perfil.css</td>
+                <td>529</td>
+                <td>436</td>
+                <td>15</td>
+                <td>78</td>
+            </tr>
+            <tr>
+                <td>Administrador\admin\admin.html</td>
+                <td>528</td>
+                <td>506</td>
+                <td>0</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Salud\Controlador\C-asistente-ia\alissa-smart.js</td>
+                <td>419</td>
+                <td>315</td>
+                <td>34</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\mi-perfil\mi-perfil.html</td>
+                <td>419</td>
+                <td>381</td>
+                <td>0</td>
+                <td>38</td>
+            </tr>
+            <tr>
+                <td>Salud\Controlador\C-comida-detalle\comida-detalle.js</td>
+                <td>384</td>
+                <td>287</td>
+                <td>37</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\recomendaciones\recomendaciones.css</td>
+                <td>330</td>
+                <td>278</td>
+                <td>1</td>
+                <td>51</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\lista-comidas\lista-comidas.css</td>
+                <td>324</td>
+                <td>267</td>
+                <td>10</td>
+                <td>47</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\como-usar\como-usar.css</td>
+                <td>313</td>
+                <td>269</td>
+                <td>1</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\Principal\principal.css</td>
+                <td>301</td>
+                <td>247</td>
+                <td>9</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>Salud\Controlador\C-lista-comidas\lista-comidas.js</td>
+                <td>272</td>
+                <td>219</td>
+                <td>24</td>
+                <td>29</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\como-usar\como-usar.html</td>
+                <td>270</td>
+                <td>248</td>
+                <td>0</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\Registrar-login\register-login.css</td>
+                <td>254</td>
+                <td>206</td>
+                <td>10</td>
+                <td>38</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\comida-detalle\comida-detalle.html</td>
+                <td>234</td>
+                <td>216</td>
+                <td>0</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\lista-comidas\lista-comidas.html</td>
+                <td>220</td>
+                <td>208</td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Salud\Controlador\C-mi-perfil\mi-perfil.js</td>
+                <td>210</td>
+                <td>165</td>
+                <td>12</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>Salud\Vista\sobre-nosotros\sobre-nosotros.css</td>
+                <td>210</td>
+                <td>178</td>
+                <td>1</td>
+                <td>31</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

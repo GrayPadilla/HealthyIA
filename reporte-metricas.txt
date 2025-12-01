@@ -1,0 +1,48 @@
+﻿========================================
+  REPORTE DE METRICAS ESTATICAS
+  Proyecto: Salud
+  Fecha: 2025-11-10 21:35:00
+========================================
+
+RESUMEN GENERAL
+---------------
+Total de archivos analizados: 40
+Total de lineas: 9647
+  - Lineas de codigo: 7977
+  - Lineas de comentarios: 401
+  - Lineas vacias: 1269
+
+DISTRIBUCION POR TIPO DE ARCHIVO
+---------------------------------
+Archivos JavaScript (.js): 17
+Archivos HTML (.html): 11
+Archivos CSS (.css): 11
+Archivos Python (.py): 1
+
+METRICAS ADICIONALES
+--------------------
+Promedio de lineas por archivo: 241.18
+Ratio de comentarios: 5.03%
+
+ARCHIVOS ANALIZADOS
+-------------------
+Salud\Controlador\C-asistente-ia\asistente-ia-fixed.js  - Total: 816 lineas  - Codigo: 600 | Comentarios: 82 | Vacias: 134
+Administrador\admin\admin.css  - Total: 779 lineas  - Codigo: 640 | Comentarios: 19 | Vacias: 120
+Salud\Vista\comida-detalle\comida-detalle.css  - Total: 701 lineas  - Codigo: 581 | Comentarios: 16 | Vacias: 104
+Salud\Controlador\C-asistente-ia\alissa-smart-copy.js  - Total: 536 lineas  - Codigo: 401 | Comentarios: 50 | Vacias: 85
+Salud\Vista\mi-perfil\mi-perfil.css  - Total: 529 lineas  - Codigo: 436 | Comentarios: 15 | Vacias: 78
+Administrador\admin\admin.html  - Total: 528 lineas  - Codigo: 506 | Comentarios: 0 | Vacias: 22
+Salud\Controlador\C-asistente-ia\alissa-smart.js  - Total: 419 lineas  - Codigo: 315 | Comentarios: 34 | Vacias: 70
+Salud\Vista\mi-perfil\mi-perfil.html  - Total: 419 lineas  - Codigo: 381 | Comentarios: 0 | Vacias: 38
+Salud\Controlador\C-comida-detalle\comida-detalle.js  - Total: 384 lineas  - Codigo: 287 | Comentarios: 37 | Vacias: 60
+Salud\Vista\recomendaciones\recomendaciones.css  - Total: 330 lineas  - Codigo: 278 | Comentarios: 1 | Vacias: 51
+Salud\Vista\lista-comidas\lista-comidas.css  - Total: 324 lineas  - Codigo: 267 | Comentarios: 10 | Vacias: 47
+Salud\Vista\como-usar\como-usar.css  - Total: 313 lineas  - Codigo: 269 | Comentarios: 1 | Vacias: 43
+Salud\Vista\Principal\principal.css  - Total: 301 lineas  - Codigo: 247 | Comentarios: 9 | Vacias: 45
+Salud\Controlador\C-lista-comidas\lista-comidas.js  - Total: 272 lineas  - Codigo: 219 | Comentarios: 24 | Vacias: 29
+Salud\Vista\como-usar\como-usar.html  - Total: 270 lineas  - Codigo: 248 | Comentarios: 0 | Vacias: 22
+Salud\Vista\Registrar-login\register-login.css  - Total: 254 lineas  - Codigo: 206 | Comentarios: 10 | Vacias: 38
+Salud\Vista\comida-detalle\comida-detalle.html  - Total: 234 lineas  - Codigo: 216 | Comentarios: 0 | Vacias: 18
+Salud\Vista\lista-comidas\lista-comidas.html  - Total: 220 lineas  - Codigo: 208 | Comentarios: 0 | Vacias: 12
+Salud\Controlador\C-mi-perfil\mi-perfil.js  - Total: 210 lineas  - Codigo: 165 | Comentarios: 12 | Vacias: 33
+Salud\Vista\sobre-nosotros\sobre-nosotros.css  - Total: 210 lineas  - Codigo: 178 | Comentarios: 1 | Vacias: 31

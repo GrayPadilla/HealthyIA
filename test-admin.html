@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Verificar Servidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2b7cff; }
+        .success { color: #10b981; font-weight: bold; }
+        .error { color: #ef4444; font-weight: bold; }
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background: #2b7cff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover { background: #1a5fd1; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>✅ Servidor Funcionando Correctamente</h1>
+        <p class="success">Si ves esta página, el servidor está funcionando.</p>
+    </div>
+
+    <div class="box">
+        <h2>🔗 Enlaces de Prueba</h2>
+        <p><strong>Administrador:</strong></p>
+        <a href="/Administrador/admin/admin.html" target="_blank">
+            Abrir Panel de Administración
+        </a>
+        
+        <p><strong>Página Principal:</strong></p>
+        <a href="/Salud/Vista/Principal/principal.html" target="_blank">
+            Abrir Página Principal
+        </a>
+        
+        <p><strong>Login:</strong></p>
+        <a href="/Salud/Vista/Registrar-login/register-login.html" target="_blank">
+            Abrir Login/Registro
+        </a>
+    </div>
+
+    <div class="box">
+        <h2>📋 Información del Servidor</h2>
+        <p><strong>URL Actual:</strong> <span id="current-url"></span></p>
+        <p><strong>Puerto:</strong> <span id="port"></span></p>
+        <p><strong>Ruta del Administrador:</strong></p>
+        <code id="admin-path"></code>
+    </div>
+
+    <script>
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('port').textContent = window.location.port || '8000 (default)';
+        document.getElementById('admin-path').textContent = window.location.origin + '/Administrador/admin/admin.html';
+    </script>
+</body>
+</html>
+

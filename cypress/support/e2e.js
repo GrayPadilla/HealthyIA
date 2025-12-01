@@ -1,0 +1,1 @@
+// Archivo de soporte para pruebas E2E de Cypress
